@@ -23,7 +23,7 @@ public class JsonRest {
 				"}";
 	}
 	
-	// JSON create
+	// JSON create JSON-P 
 	@GET
 	@Path("processing")
 	@Produces("application/json; charset=UTF-8")
@@ -34,12 +34,37 @@ public class JsonRest {
 				.add("productName","Laptop")
 				.add("price",6700.0)
 				.build().toString();
-			
 		
 	}
 	
 	
-	
+	// Object BINDING JSON-B
+	@GET
+	@Path("binding")
+	@Produces("application/json; charset=UTF-8")
+	public Product getProduct() {
+		Product prd = new Product();
+		prd.setProductId(105L);
+		prd.setProductName("Shoes");
+		prd.setSalesPrice(375.0);
+		
+		return prd;
+	}
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 package com.ugur.restbinding.binding;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
-
-
+@XmlRootElement		// Bunun xml'e çevirilebileceğini söylemiş olduk.
 public class Product {
 
 	private long productId;

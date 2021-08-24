@@ -1,5 +1,10 @@
 package com.ugur.restbinding.client;
 
+import java.io.StringReader;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -21,5 +26,17 @@ public class JsonClient {
 		
 		System.out.println("Plain : "+plain);
 						
+		
+		
+		JsonReader jsonReader = Json.createReader(new StringReader(plain));
+		JsonObject jsonObject = jsonReader.readObject();
+		
+		jsonReader.close();
+		
+		
+		long productId = jsonObject.getJsonNumber("productId").longValue();
+		String productName = jsonObject.getString("productName");
+		double salesPrice = jsonObject.getJsonNumber("salesPrice").doubleValue();
+		System.out.println(productId + " "+ productName+ " "+salesPrice);
 	}
 }
